@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 59.1 (86144) - https://sketch.com -->
+    <title>logo - Holt Motors</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="0.18219697%" y1="50%" x2="57.6115736%" y2="50%" id="linearGradient-1">
+            <stop stop-color="#FFFFFF" stop-opacity="0.3" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="49.9531567%" y1="100%" x2="49.9531567%" y2="36.8163505%" id="linearGradient-2">
+            <stop stop-color="#FFFFFF" stop-opacity="0.3" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Lightning/Page-Toolbar" transform="translate(-16.000000, -16.000000)">
+            <g id="logo---Holt-Motors" transform="translate(16.000000, 16.000000)">
+                <rect id="base" fill="#0E70C7" x="0" y="0" width="32" height="32" rx="4"></rect>
+                <g id="h-logo" transform="translate(6.000000, 8.000000)" fill-rule="nonzero">
+                    <polygon id="Shape" fill="#FFFFFF" points="5.38333333 0.255 8.52833333 0.255 8.52833333 5.29833333 8.52833333 6.17666667 8.52833333 9.12333333 8.52833333 10.115 8.52833333 15.045 5.38333333 15.045"></polygon>
+                    <polygon id="Shape" fill="url(#linearGradient-1)" points="13.8266667 0.255 13.8266667 6.17666667 9.52 6.17666667 9.52 9.12333333 13.8266667 9.12333333 13.8266667 15.045 17 15.045 17 0.255"></polygon>
+                    <path d="M5.38333333,0.255 C1.7,0.255 0,2.15333333 0,4.76 C0,7.055 1.38833333,9.01 4.39166667,9.01 L4.39166667,6.06333333 C3.51333333,6.06333333 3.11666667,5.44 3.11666667,4.78833333 C3.11666667,3.96666667 3.825,3.23 5.38333333,3.23" id="Shape" fill="url(#linearGradient-2)"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
