@@ -1,8 +1,15 @@
 {
     "name": "df19-pwc-rms",
-    "version": "1.0.0",
-    "description": "A Harp App on Heroku",
+    "version": "0.0.1",
+    "scripts": {
+      "start": "node server/app.js"
+    },
     "dependencies": {
-       "harp": "*"
+      "express": "3.4"
+    },
+    "devDependencies": {},
+    "engines": {
+      "node": "0.10.x",
+      "npm": "1.2.30"
     }
 }
