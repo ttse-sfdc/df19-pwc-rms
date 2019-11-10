@@ -24,7 +24,7 @@ $(document).ready(function(){
                 'Accept': 'application/json',
             },
             type: "POST",
-            crossdomain: true,
+            //crossdomain: true,
             url: "https://" + customDomain + ".my.salesforce.com/services/data/v46.0/smartdatadiscovery/predict",
             dataType: "json",
             data: { 

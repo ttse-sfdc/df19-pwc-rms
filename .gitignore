@@ -1,4 +1,5 @@
+.DS_Store
 *.cert
 *.key
-node_modules/
+node_modules
 package-lock.json
