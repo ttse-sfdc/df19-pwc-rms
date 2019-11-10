@@ -19,6 +19,7 @@ $(document).ready(function(){
 
         $.post({
             settings: {
+                crossDomain: true,
                 headers: {
                     'Content-Type': 'application/json; charset=UTF-8',
                     'Authorization': 'OAuth ' + accessToken,
