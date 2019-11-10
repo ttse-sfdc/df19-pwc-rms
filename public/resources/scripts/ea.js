@@ -18,13 +18,11 @@ $(document).ready(function(){
         $( "div.ea_discovery_panel .text p span" ).html("BLAH BLAH BLAH");
 
         $.post({
-            settings: {
-                crossDomain: true,
-                headers: {
-                    'Content-Type': 'application/json; charset=UTF-8',
-                    'Authorization': 'OAuth ' + accessToken,
-                    'Accept': 'application/json',
-                }
+            crossDomain: true,
+            headers: {
+                'Content-Type': 'application/json; charset=UTF-8',
+                'Authorization': 'OAuth ' + accessToken,
+                'Accept': 'application/json',
             },
             url: "https://" + customDomain + ".my.salesforce.com/services/data/v46.0/smartdatadiscovery/predict",
             //dataType: "json",
