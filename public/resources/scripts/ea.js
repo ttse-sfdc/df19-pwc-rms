@@ -17,16 +17,16 @@ $(document).ready(function(){
         alert("LOS: " + $( "div.ea_los .text p span" ).html() + " | Product: " + $( "div.ea_product .text p span" ).html() + " | Hours: " + $( "div.ea_hours .text p span" ).html() + " | Allocation: " + $( "div.ea_allocation .text p span" ).html());
         $( "div.ea_discovery_panel .text p span" ).html("BLAH BLAH BLAH");
 
-        $.ajax({
-            headers: {
-                'Content-Type': 'application/json; charset=UTF-8',
-                'Authorization': 'OAuth ' + accessToken,
-                'Accept': 'application/json',
+        $.post({
+            settings: {
+                headers: {
+                    'Content-Type': 'application/json; charset=UTF-8',
+                    'Authorization': 'OAuth ' + accessToken,
+                    'Accept': 'application/json',
+                }
             },
-            type: "POST",
-            //crossdomain: true,
             url: "https://" + customDomain + ".my.salesforce.com/services/data/v46.0/smartdatadiscovery/predict",
-            dataType: "json",
+            //dataType: "json",
             data: { 
                 "predictionDefinition": predictionDefinition,
                 "type": "RawData",
@@ -37,9 +37,6 @@ $(document).ready(function(){
             },
             success: function (result) {
                 alert( "Data Loaded: " + result );
-            },
-            error: function (xhr, status, err) {
-                console.error(xhr, status, err);
             }
         });
 
