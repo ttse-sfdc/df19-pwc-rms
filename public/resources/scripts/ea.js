@@ -18,10 +18,10 @@ $(document).ready(function(){
         $( "div.ea_discovery_panel .text p span" ).html("BLAH BLAH BLAH");
 
         $.ajax({
-            beforeSend: function(xhr){
-                xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
-                xhr.setRequestHeader('Authorization', 'OAuth ' + accessToken);
-                xhr.setRequestHeader('Accept', 'application/json');
+            headers: {
+                'Content-Type': 'application/json; charset=UTF-8',
+                'Authorization': 'OAuth ' + accessToken,
+                'Accept': 'application/json',
             },
             type: "POST",
             crossdomain: true,
