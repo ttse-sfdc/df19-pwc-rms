@@ -25,15 +25,14 @@ $(document).ready(function(){
                 'Accept': 'application/json',
             },
             url: "https://" + customDomain + ".my.salesforce.com/services/data/v46.0/smartdatadiscovery/predict",
-            //dataType: "json",
-            data: { 
+            data: JSON.stringify({ 
                 "predictionDefinition": predictionDefinition,
                 "type": "RawData",
                 "columnNames": ["StageName","CloseDate","Account.BillingCountry","IsClosed","IsWon"],
                 "rows": [
                     ["Prospecting","2019-06-30","USA","false","false"]
                 ]
-            },
+            }),
             success: function (result) {
                 alert( "Data Loaded: " + result );
             }
