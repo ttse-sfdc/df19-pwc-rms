@@ -56,18 +56,19 @@ $(document).ready(function(){
                 
                 var causesHtml = "";
                 result.predictions[0].prediction.middleValues.forEach(function(column) {
-                    column.forEach(function(element) {
-                        causesHtml = element.value + element.columns[0].columnName + element.columns[0].columnValue + " and ";
+                    causesHtml += "<span style='" + ((column.value < 0) ? 'color:green;' : 'color:red;') + "'>" + parseFloat(column.value).toFixed(2) + "</span> because ";
+                    column.columns.forEach(function(element) {
+                        causesHtml += element.columnName + " is <b>" + element.columnValue + "</b> and ";
                     })
                     causesHtml += "<br>";
                 });
 
                 var presecriptionHtml = "";
-                result.prescriptions.forEach(function(element) {
-                    presecriptionHtml = element.value + element.columns[0].columnName + element.columns[0].columnValue + "<br>";
+                result.predictions[0].prescriptions.forEach(function(element) {
+                    presecriptionHtml += "<span style='" + ((element.value < 0) ? 'color:green;' : 'color:red;') + "'>" + parseFloat(element.value).toFixed(2)  + "</span> If you change " + element.columns[0].columnName + " to <b>" + element.columns[0].columnValue + "</b><br>";
                 });
 
-                $( "div.ea_discovery_panel .text p span" ).html(causesHtml + "<br>" + presecriptionHtml);
+                $( "div.ea_discovery_panel .text p span" ).html("<span class='ea-section-title'>Leading Causes:</span><br><span class='ea-section-body'>" + causesHtml + "</span><br><span class='ea-section-title'>How to Improve:</span><br><span class='ea-section-body'>" + presecriptionHtml + "</span>");
 
             }
         });
