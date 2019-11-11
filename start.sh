@@ -1,0 +1,7 @@
+export BASE_URL=http://localhost:3000 && \
+export LOGIN_URL=https://login.salesforce.com && \
+
+export CLIENT_ID=3MVG9SemV5D80oBdPknGJaTWOVnTwUKYx2q8F4tc71IRD9CGuzV6pyIo7naH3H4tZcgoJvZELyH.c3sP1zvov && \
+export CLIENT_SECRET=41892A7C56BA44935301DA97230E2535FC3279453273770B7C9CFE2200CC4799 && \
+
+DEBUG=myapp:* npm start

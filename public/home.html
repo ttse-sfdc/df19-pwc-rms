@@ -42,23 +42,11 @@
     <script src="data/document.js"></script>
     <script src="files/home/data.js"></script>
     <script src="files/home/ea.js"></script>
+    <script src="files/home/utils.js"></script>
     <script type="text/javascript">
       $axure.utils.getTransparentGifPath = function() { return 'resources/images/transparent.gif'; };
       $axure.utils.getOtherPath = function() { return 'resources/Other.html'; };
       $axure.utils.getReloadPath = function() { return 'resources/reload.html'; };
-
-      jsforce.browser.init({
-        clientId: '3MVG9SemV5D80oBdPknGJaTWOVnTwUKYx2q8F4tc71IRD9CGuzV6pyIo7naH3H4tZcgoJvZELyH.c3sP1zvov',
-        redirectUri: 'http://localhost:3000'
-    });
-    
-    jsforce.browser.on('connect', function(conn) {
-        console.log(conn.accessToken);
-        conn.query('SELECT Id, Name FROM Account', function(err, res) {
-            if (err) { return console.error(err); }
-            console.log(res);
-        });
-    });
     </script>
   </head>
   <body>
@@ -208,7 +196,7 @@
 
                   <!-- Pic (Shape) -->
                   <div id="u22" class="ax_default shape" data-label="Pic">
-                    <img id="u22_img" class="img " src="images/home/pic_u22.svg" onclick="javascript:jsforce.browser.login();"/>
+                    <img id="u22_img" class="img " src="images/home/pic_u22.svg" />
                     <div id="u22_text" class="text " style="display:none; visibility: hidden">
                       <p></p>
                     </div>

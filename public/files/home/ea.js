@@ -1,22 +1,9 @@
-//var baseUrl = 'https://df19-pwc-rms.herokuapp.com/';
-var baseUrl = 'http://localhost:3000';
-
-jsforce.browser.init({
-    clientId: '3MVG9SemV5D80oBdPknGJaTWOVnTwUKYx2q8F4tc71IRD9CGuzV6pyIo7naH3H4tZcgoJvZELyH.c3sP1zvov',
-    redirectUri: "http://localhost:3000/callback.html"
-});
-
 $(document).ready(function(){
     var customDomain = 'df19-ea-keynote';
     var predictionDefinition = '0ORB0000000CeMIOA0';
 
-    if (jsforce.browser.isLoggedIn())
-        console.log('loogged in');
-    else
-        console.log('not logged in');
-
-    //var hashParams = mapUrlHashes();
-    var accessToken = 'as';
+    var accessToken = sessionStorage.getItem(KEY_SFDC_ACCESS_TOKEN);
+    console.log("Access Token: " + accessToken);
 
     //add button characteristics
     $( "div.ea_update" ).hover(function() {
