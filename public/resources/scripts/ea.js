@@ -50,7 +50,8 @@ $(document).ready(function(){
             success: function (result) {
                 console.log(result);
                 var createDate = new Date($( "div.ea_createDate .text p span" ).html());
-                var predictedCloseDate = new Date(createDate.getDate() + Math.round(result.predictions[0].prediction.total));
+                var predictedCloseDate = new Date();
+                predictedCloseDate.setDate(createDate.getDate() + Math.round(result.predictions[0].prediction.total));
                 
                 $( "div.ea_predictedCloseDate .text p span" ).html(predictedCloseDate);
 
