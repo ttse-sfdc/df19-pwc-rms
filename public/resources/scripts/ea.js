@@ -49,7 +49,7 @@ $(document).ready(function(){
             }),
             success: function (result) {
                 console.log(result);
-                var predictedCloseDate = new Date($( "div.ea_createDate .text p span" ).html()) + result.predictions[0].prediction.total;
+                var predictedCloseDate = new Date(new Date($( "div.ea_createDate .text p span" ).html()) + parseFloat(result.predictions[0].prediction.total));
                 
                 $( "div.ea_predictedCloseDate .text p span" ).html(predictedCloseDate);
 
