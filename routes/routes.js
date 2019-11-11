@@ -1,7 +1,5 @@
 var jsforce = require("jsforce");
 
-var utils = require("../utils");
-
 module.exports = function(app) {
 
 	var oauth2 = new jsforce.OAuth2({
@@ -30,19 +28,5 @@ module.exports = function(app) {
 	    res.redirect("/redirect.html#accessToken=" + conn.accessToken);
 	    // ...
 	  });
-	});
-
-	app.get("/", function(req, res) {
-
-		var def = utils.generateSfdcAccessToken();
-		def.then( function(accessToken) {
-			res.redirect("redirect.html#accessToken=" + accessToken);
-		}, function(err) {
-			console.error("[/] Could not generate access token: ", err);
-
-			// Should redirect to an error page (same as the one used by redirect.html)
-			res.status(400).send(err);
-		});
-		
 	});
 };
