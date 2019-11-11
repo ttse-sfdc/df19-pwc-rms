@@ -14,11 +14,11 @@ $(document).ready(function(){
 
     //on click get prediction
     $( "div.ea_update" ).click(function(){
-        alert(
-            "LOS: " + $( "div.ea_los .text p span" ).html() 
-            + " | Product: " + $( "div.ea_product .text p span" ).html() 
-            + " | Hours: " + $( "div.ea_hours .text p span" ).html() 
-            + " | Allocation: " + $( "div.ea_allocation .text p span" ).html());
+        // alert(
+        //     "LOS: " + $( "div.ea_los .text p span" ).html() 
+        //     + " | Product: " + $( "div.ea_product .text p span" ).html() 
+        //     + " | Hours: " + $( "div.ea_hours .text p span" ).html() 
+        //     + " | Allocation: " + $( "div.ea_allocation .text p span" ).html());
         
         $.post({
             crossDomain: true,
@@ -30,34 +30,21 @@ $(document).ready(function(){
             url: "https://" + customDomain + ".my.salesforce.com/services/data/v46.0/smartdatadiscovery/predict",
             data: JSON.stringify({ 
                 "predictionDefinition": predictionDefinition,
-                "type": "RawData",
+                "type": "RecordOverrides",
                 "columnNames": [
-                    "PwC_Opportunity__c.Number_of_People_on_Opportunity__c",
                     "PwC_Opportunity__c.On_boarding_hours__c",
-                    "PwC_Opportunity__c.Billing_Type__c",
-                    "PwC_Opportunity__c.Sector__c",
                     "PwC_Opportunity__c.Resource_allocation__c",
-                    "PwC_Opportunity__c.Total_Days_Identified_Through_Qualified__c",
-                    "PwC_Opportunity__c.Competitive_Situation__c",
                     "PwC_Opportunity__c.Product_Name__c",
-                    "PwC_Opportunity__c.Route_To_Market__c",
-                    "PwC_Opportunity__c.Amount__c",
-                    "PwC_Opportunity__c.Global_Platform__c"
                 ],
                 "rows": [
-                    [
-                        "10 to 15",
-                        $( "div.ea_hours .text p span" ).html(),
-                        "Fixed",
-                        "CBU",
-                        $( "div.ea_allocation .text p span" ).html(),
-                        "17.0",
-                        "Unknown",
-                        $( "div.ea_product .text p span" ).html(),
-                        "Performance & Non-auto",
-                        "1300000",
-                        "Performance & Non-auto"
-                    ]
+                    {
+                        record: "a2NB00000015za0MAA",
+                        row: [
+                            $( "div.ea_hours .text p span" ).html(),
+                            $( "div.ea_allocation .text p span" ).html(),
+                            $( "div.ea_product .text p span" ).html(),
+                        ]
+                    }
                 ]
             }),
             success: function (result) {
