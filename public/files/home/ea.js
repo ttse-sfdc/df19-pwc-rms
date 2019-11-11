@@ -1,7 +1,22 @@
+//var baseUrl = 'https://df19-pwc-rms.herokuapp.com/';
+var baseUrl = 'http://localhost:3000';
+
+jsforce.browser.init({
+    clientId: '3MVG9SemV5D80oBdPknGJaTWOVnTwUKYx2q8F4tc71IRD9CGuzV6pyIo7naH3H4tZcgoJvZELyH.c3sP1zvov',
+    redirectUri: "http://localhost:3000/callback.html"
+});
+
 $(document).ready(function(){
     var customDomain = 'df19-ea-keynote';
     var predictionDefinition = '0ORB0000000CeMIOA0';
-    var accessToken = '00DB0000000YK2U!ARUAQII1xrw3c_WfvzvVHxaHm1mzoo9VtME62wN.lUj76VgqI6Q4zDNXhV_Mr_FzOfRHMMQr9f067k.6C5sAG87Y.uwcyZve';
+
+    if (jsforce.browser.isLoggedIn())
+        console.log('loogged in');
+    else
+        console.log('not logged in');
+
+    //var hashParams = mapUrlHashes();
+    var accessToken = 'as';
 
     //add button characteristics
     $( "div.ea_update" ).hover(function() {
@@ -56,16 +71,17 @@ $(document).ready(function(){
                 
                 var causesHtml = "";
                 result.predictions[0].prediction.middleValues.forEach(function(column) {
-                    causesHtml += "<span style='" + ((column.value < 0) ? 'color:green;' : 'color:red;') + "'>" + parseFloat(column.value).toFixed(2) + "</span> because ";
+                    causesHtml += "<span style='" + ((column.value < 0) ? "color:green;'><b>" : "color:red;''><b>+") + parseFloat(column.value).toFixed(2) + "</b></span> because ";
                     column.columns.forEach(function(element) {
                         causesHtml += element.columnName + " is <b>" + element.columnValue + "</b> and ";
                     })
+                    causesHtml = causesHtml.substring(0,causesHtml.lastIndexOf(' and '));
                     causesHtml += "<br>";
                 });
 
                 var presecriptionHtml = "";
                 result.predictions[0].prescriptions.forEach(function(element) {
-                    presecriptionHtml += "<span style='" + ((element.value < 0) ? 'color:green;' : 'color:red;') + "'>" + parseFloat(element.value).toFixed(2)  + "</span> If you change " + element.columns[0].columnName + " to <b>" + element.columns[0].columnValue + "</b><br>";
+                    presecriptionHtml += "<span style='" + ((element.value < 0) ? "color:green;'><b>" : "color:red;''><b>+") + parseFloat(element.value).toFixed(2)  + "</b></span> If you change " + element.columns[0].columnName + " to <b>" + element.columns[0].columnValue + "</b><br>";
                 });
 
                 $( "div.ea_discovery_panel .text p span" ).html("<span class='ea-section-title'>Leading Causes:</span><br><span class='ea-section-body'>" + causesHtml + "</span><br><span class='ea-section-title'>How to Improve:</span><br><span class='ea-section-body'>" + presecriptionHtml + "</span>");
