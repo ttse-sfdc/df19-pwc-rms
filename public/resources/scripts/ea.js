@@ -53,8 +53,21 @@ $(document).ready(function(){
                 predictedCloseDate.setDate(predictedCloseDate.getDate() + Math.round(result.predictions[0].prediction.total));
                 
                 $( "div.ea_predictedCloseDate .text p span" ).html(predictedCloseDate.getMonth() + 1 + "/" + predictedCloseDate.getDate() + "/" + predictedCloseDate.getFullYear());
+                
+                var causesHtml = "";
+                result.predictions[0].prediction.middleValues.forEach(function(column) {
+                    column.forEach(function(element) {
+                        causesHtml = element.value + element.columns[0].columnName + element.columns[0].columnValue + " and ";
+                    })
+                    causesHtml += "<br>";
+                });
 
-                $( "div.ea_discovery_panel .text p span" ).html("BLAH BLAH BLAH");
+                var presecriptionHtml = "";
+                result.prescriptions.forEach(function(element) {
+                    presecriptionHtml = element.value + element.columns[0].columnName + element.columns[0].columnValue + "<br>";
+                });
+
+                $( "div.ea_discovery_panel .text p span" ).html(causesHtml + "<br>" + presecriptionHtml);
 
             }
         });
