@@ -47,7 +47,10 @@ $(document).ready(function(){
                             $( "div.ea_product .text p span" ).html(),
                         ]
                     }
-                ]
+                ],
+                "settings" : {
+                    "maxPrescriptions" : 2 
+                }
             }),
             success: function (result) {
                 console.log(result);
@@ -58,7 +61,7 @@ $(document).ready(function(){
                 
                 var causesHtml = "";
                 result.predictions[0].prediction.middleValues.forEach(function(column) {
-                    causesHtml += "<span style='" + ((column.value < 0) ? "color:green;'><b>" : "color:red;''><b>+") + parseFloat(column.value).toFixed(2) + "</b></span> because ";
+                    causesHtml += "<span style='" + ((column.value < 0) ? "color:#43d692;'><b>" : "color:red;''><b>+") + parseFloat(column.value).toFixed(2) + "</b></span> because ";
                     column.columns.forEach(function(element) {
                         causesHtml += element.columnName + " is <b>" + element.columnValue + "</b> and ";
                     })
@@ -68,7 +71,7 @@ $(document).ready(function(){
 
                 var presecriptionHtml = "";
                 result.predictions[0].prescriptions.forEach(function(element) {
-                    presecriptionHtml += "<span style='" + ((element.value < 0) ? "color:green;'><b>" : "color:red;''><b>+") + parseFloat(element.value).toFixed(2)  + "</b></span> If you change " + element.columns[0].columnName + " to <b>" + element.columns[0].columnValue + "</b><br>";
+                    presecriptionHtml += "<span style='" + ((element.value < 0) ? "color:#43d692;'><b>" : "color:red;''><b>+") + parseFloat(element.value).toFixed(2)  + "</b></span> If you change " + element.columns[0].columnName + " to <b>" + element.columns[0].columnValue + "</b><br>";
                 });
 
                 $( "div.ea_discovery_panel .text p span" ).html("<span class='ea-section-title'>Leading Causes:</span><br><span class='ea-section-body'>" + causesHtml + "</span><br><span class='ea-section-title'>How to Improve:</span><br><span class='ea-section-body'>" + presecriptionHtml + "</span>");
