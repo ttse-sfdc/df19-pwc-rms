@@ -52,7 +52,7 @@ $(document).ready(function(){
                 var predictedCloseDate = new Date($( "div.ea_createDate .text p span" ).html());
                 predictedCloseDate.setDate(predictedCloseDate.getDate() + Math.round(result.predictions[0].prediction.total));
                 
-                $( "div.ea_predictedCloseDate .text p span" ).html(predictedCloseDate.getMonth() + "/" + predictedCloseDate.getDate() + "/" + predictedCloseDate.getYear());
+                $( "div.ea_predictedCloseDate .text p span" ).html(predictedCloseDate.getMonth() + 1 + "/" + predictedCloseDate.getDate() + "/" + predictedCloseDate.getFullYear());
 
                 $( "div.ea_discovery_panel .text p span" ).html("BLAH BLAH BLAH");
 
