@@ -37,6 +37,7 @@ $(document).ready(function(){
                     "PwC_Opportunity__c.On_boarding_hours__c",
                     "PwC_Opportunity__c.Resource_allocation__c",
                     "PwC_Opportunity__c.Product_Name__c",
+                    "PwC_Opportunity__c.Number_of_People_on_Opportunity__c"
                 ],
                 "rows": [
                     {
@@ -45,6 +46,7 @@ $(document).ready(function(){
                             $( "div.ea_hours .text p span" ).html(),
                             $( "div.ea_allocation .text p span" ).html(),
                             $( "div.ea_product .text p span" ).html(),
+                            "0 to 1"
                         ]
                     }
                 ],
