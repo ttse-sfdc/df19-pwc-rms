@@ -1,6 +1,6 @@
 $(document).ready(function(){
     var customDomain = 'df19-ea-keynote';
-    var predictionDefinition = '0ORB0000000CeMIOA0';
+    var predictionDefinition = '1ORB000000000djOAA';
 
     var accessToken = sessionStorage.getItem(KEY_SFDC_ACCESS_TOKEN);
     console.log("Access Token: " + accessToken);
